@@ -1,0 +1,38 @@
+<template>
+    <div if:true={isLoading}>
+        <lightning-spinner
+            alternative-text="Loading..." variant=" brand" class=" sdls-is-fixed">
+        </lightning-spinner>
+    </div>
+    <lightning-button class="slds-m-bottom_medium slds-m-left_large" label="Refresh" onclick={refreshData} ></lightning-button>
+    <lightning-card>
+            <lightning-datatable
+             key-field ="Id"
+             data={contacts}
+             columns={columns}
+             max-row-selection="5"
+             onrowselection={handleSelection}>
+            </lightning-datatable>
+            <lightning-button  class="slds-align_absolute-center slds-m-top_large" variant="brand" label="Delete Contact" title="Primary action" onclick={deleteContact}></lightning-button>
+        <!-- <template if:true={errors}>
+            <p>{errors}</p>
+        </template> -->
+    </lightning-card>
+</template>
+
+<!-- <template>
+    <lightning-card>
+        <lightning-datatable
+                key-field="Id"
+                data={contactdata.data}
+                columns={columns}
+                max-row-selection="1"
+                onrowselection={handleSelection}
+                >
+           </lightning-datatable>
+           <lightning-button  class="slds-align_absolute-center slds-m-top_large" variant="brand" label="Delete Contact" title="Primary action" onclick={deleteContact}></lightning-button>
+         <template if:true={errors}>
+            <p>{errors}</p>
+        </template> 
+    </lightning-card>
+</template> -->
